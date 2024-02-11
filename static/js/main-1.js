@@ -2,7 +2,26 @@ const routeEl = document.querySelector('.route')
 const routeListEl = routeEl.querySelector('.list')
 const routeTitleEl = routeEl.querySelector('.title')
 
+// 动态创建列表
+for (let index in routes) {
+  const liEl = document.createElement('li')
+  routeListEl.append(liEl)
 
+  const item = routes[index]
+  liEl.textContent = item.name
+  liEl.onclick = function() {
+    defaultRoute = index
+    routeTitleEl.textContent = routes[defaultRoute].name
+
+    // 如果搜索框存在内容，优先使用搜索框的内容。否则，使用缓存的内容
+    if (searchEl.value) {
+      enterURL = searchEl.value
+    }
+
+    play(enterURL)
+    localStorage.setItem('default', defaultRoute)
+  }
+}
 
 const friendEl = document.querySelector('.friendLink')
 for (const item of friends) {
@@ -14,7 +33,8 @@ for (const item of friends) {
 }
 
 // 获取默认路线
-let defaultRoute = 'https://svip.bljiex.cc/?v=' || ''
+let defaultRoute = localStorage.getItem('default') || 0
+routeTitleEl.textContent = routes[defaultRoute].name
 
 // 播放功能
 const searchEl = document.querySelector('.search')
@@ -29,9 +49,8 @@ clickEl.onclick = parseURL
 clearEl.onclick = reset
 
 function play(url) {
-  // TODO playerEl.src = routes[defaultRoute].url + url
-  playerEl.src = defaultRoute + url
-  
+ // playerEl.src = routes[defaultRoute].url + url
+  playerEl.src = https://cldae4.top/video.php?tid=2230519&usevipvdourl=0
 }
 
 // 当点击播放时
@@ -69,20 +88,4 @@ if (url) {
   enterURL = url
   play(url)
   searchEl.value = url
-}
-
-function handleRadioClick() {
-	const selectedOption = document.querySelector('input[name="radio"]:checked').value;
-	console.log('选择的选项是：' + selectedOption);
-	defaultRoute = selectedOption
-//	routeTitleEl.textContent = selectedOption
-
-  // 如果搜索框存在内容，优先使用搜索框的内容。否则，使用缓存的内容
-	if (searchEl.value) {
-	  enterURL = searchEl.value
-	}
-
-    play(enterURL)
-    localStorage.setItem('default', defaultRoute)
-  
 }

@@ -12,7 +12,7 @@ body {
 
 /* 导航条-播放列表 */
 .nav .route {
-  display: inline-block;;
+  display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
@@ -51,51 +51,6 @@ body {
 .route .list li:hover {
   background-color: #ff0;
 }
-
-
-/* 切换卡 */
-.nav .route .test-input{
-	display: inline-block;
-	justify-content: flex-end;
-	align-items: center;
-	position: relative;
-	width: 100%;
-	margin-right: 0%;
-	margin-bottom: 0px
-  
-}
-.test-label{
-	position:relative;
-	font-size: 0;
-	}
-.test-radio{
-	display:none;
-}
-.silde-lr-btn{
-	background-color: #F4E8EB;
-	width: 25%;   
-	display: inline-block;
-	height: 74px;
-   text-align: center;
-}
-.test-radio:checked+ .silde-lr-btn:after{
-	background-color: #09C7F7;
-	content: "";
-	color: #0000FF;
-	width: 2%; 
-	height: 74px;
-	position: absolute;
-	left: 0;
-}
-.silde-text{
-	position: absolute;
-	font-size: 14px;  
-	z-index: 1;
-	left: 20px;}
-.test-radio:checked~ .silde-text{
-	color:#fff;
-}
-
 
 /* 导航条-输入框 */
 .nav .search {
